@@ -3,10 +3,10 @@
     <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="" /></a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav text-uppercase ml-auto">
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Home</a></li>
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Login</a></li>
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Contact</a></li>
+        <li class="nav-item"><%=link_to "Home", root_path, class: "nav-link js-scroll-trigger" %></li>
+        <li class="nav-item"><%=link_to "Login", "#", class: "nav-link js-scroll-trigger" %></li>
+        <li class="nav-item"><%=link_to "About", about_path, class: "nav-link js-scroll-trigger" %></li>
+        <li class="nav-item"><%=link_to "Contact", contact_path, class: "nav-link js-scroll-trigger" %></li>
       </ul>
     </div>
   </div>
