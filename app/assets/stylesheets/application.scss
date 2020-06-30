@@ -14,56 +14,54 @@
 
 @import "bootstrap";
 
-//signup 
+// //signup 
 
+// .signup-container {
+//   width: 100%;
+//   max-width: 330px;
+//   margin: auto;
+//   padding-top: 1rem !important;
+//   //追加
+//   background-image: url("../images/header-bg.jpg");
+//   background-repeat: no-repeat;
+//   background-attachment: scroll;
+//   background-position: center center;
+//   background-size: cover;
+// }
 
-.signup-container {
-  width: 100%;
-  max-width: 330px;
-  margin: auto;
-  padding-top: 1rem !important;
-  //追加
-  background-image: url("../images/header-bg.jpg");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
-}
+// .signup-logo-img {
+//   text-align: center;
+// }
 
-.signup-logo-img {
-  text-align: center;
-}
+// .signup-title {
+//   text-align: center;
+//   font-weight: normal;
+//   font-size: 1.5rem;
+//   margin-bottom: 2rem;
+// }
 
-.signup-title {
-  text-align: center;
-  font-weight: normal;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
+// .form-control {
+//   margin-bottom: 0;
+// }
 
-.form-control {
-  margin-bottom: 0;
-}
+// .form-submit {
+//   width: 100%;
+//   margin-top: 1rem;
+// }
 
-.form-submit {
-  width: 100%;
-  margin-top: 1rem;
-}
+// #error_explanation {
+//   color: red;
+//   ul {
+//     color: red;
+//     padding-bottom: 0;
+//   }
+// }
 
-#error_explanation {
-  color: red;
-  ul {
-    color: red;
-    padding-bottom: 0;
-  }
-}
+// .field_with_errors .form-control {
+//   border-color: red;
+// }
 
-.field_with_errors .form-control {
-  border-color: red;
-}
-
-.alert-form-extend {
-  margin: 1.5rem 0 1rem;
-}
-
+// .alert-form-extend {
+//   margin: 1.5rem 0 1rem;
+// }
 

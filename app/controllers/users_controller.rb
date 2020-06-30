@@ -2,20 +2,20 @@ class UsersController < ApplicationController
   
   # Userモデルを作る受け皿を作る
   def new
-     @user = User.new
+    @user = User.new
   end
-  
+
   # フォームの情報からUserモデルを作る
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:suceess] = "Schedule App へようこそ！"
+      flash[:success] = "Schedule Application へようこそ！"
       redirect_to @user
     else
       render 'new'
     end
   end
-  
+
   # フォームから送信されたパラメーターからユーザーを特定する
   def show
     @user = User.find(params[:id])
