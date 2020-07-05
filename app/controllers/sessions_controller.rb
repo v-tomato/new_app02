@@ -1,18 +1,24 @@
 class SessionsController < ApplicationController
   
+  include SessionsHelper
+  
   def new
   end
   
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      # 次回：ここに、ユーザーページへリダイレクトさせる記述を加える
+      log_in user
+      redirect_to user
     else
       flash.now[:danger] = 'メールアドレスかパスワードが正しくありません'
       render 'new'
     end
   end
   
+  
   def destroy
+    log_out if logged_in?
+    rediret_to root_path
   end
 end
