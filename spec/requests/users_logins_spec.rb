@@ -14,7 +14,8 @@ RSpec.describe "UsersLogins", type: :request do
           password: ""
         }
       }
-      expect(flash[:danger]).to be_turthy
+      # expect(flash[:danger]).to be_turthy
+      expect(flash[:danger]).to be_present
     end
     
     # 有効のログインの時、フラッシュメッセージが表示されない
@@ -26,7 +27,7 @@ RSpec.describe "UsersLogins", type: :request do
           password: user.password
         }
       }
-      expect(flash[:danger]).to be_falsey
+      expect(flash[:danger]).not_to be_present
     end
   end
 end

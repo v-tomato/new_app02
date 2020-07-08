@@ -18,7 +18,8 @@
          <!--Core theme CSS (includes Bootstrap)-->
         <!--<link href="css/styles.scss" rel="stylesheet" />-->
         <%= stylesheet_link_tag "styles", :media => "all" %>
-        
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tag %>
   </head>
   
   <body id="page-top">
