@@ -24,10 +24,9 @@
   
   <body id="page-top">
     <!--<div class="masthead-subheading"><%= full_title(yield(:title)) %></div>-->
+    
     <%= render 'layouts/header' %>
-      <% flash.each do |message_type, message| %>
-        <%= tag.div message, class: "alert alert-#{message_type}" %>
-      <% end %>
+     
       <%= yield %>
     <%= render 'layouts/footer' %>
   </body>

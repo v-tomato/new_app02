@@ -128,4 +128,14 @@ RSpec.describe User, type: :model do
       end
     end
   end
-end  
+  
+  # authenticated?メソッドのテスト
+  describe "User model methods" do
+    describe "authenticated?" do
+      it "return false for a user with nil digest" do
+        expect(user.authenticated?('')).to be_falsey
+      end
+    end
+  end
+
+end
