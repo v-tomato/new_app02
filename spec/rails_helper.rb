@@ -1,3 +1,5 @@
+# RSpecの設定
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
@@ -63,14 +65,7 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   
-  #追加
-  config.before(:each) do |example|
-    if example.metadata[:type] == :system
-      driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400]
-    end
-  end
-  
-  # 一番下の直前に追加・ブラウザテスト機能する
+  # 追加・ブラウザテスト機能する
   config.before(:each) do |example|
     if example.metadata[:type] == :system
       driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400]

@@ -89,7 +89,7 @@ RSpec.describe "UsersLogins", type: :request do
   end
   
   # チェックボックスがオンの時 ログアウト後のログインでトークンが残っていないか
-  it "has no remember_token after logged out when user fill in checkbox" do
+  it "has no remember_token after logged out and login when user fill in checkbox" do
     get login_path
     post_valid_information(1)
     expect(is_logged_in?).to be_truthy

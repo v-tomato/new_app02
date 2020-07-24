@@ -20,11 +20,7 @@ class User < ApplicationRecord
   
   # クラスオブジェクト/トークン生成用メソッド
   class << self
-     # トークンを作る
-    def new_token
-      SecureRandom.urlsafe_base64
-    end
-    
+  
     # 暗号化したトークンを作る
     def digest(string)
       # 複数のブラウザを同時に立ち上げた時のエラーを回避
@@ -32,12 +28,20 @@ class User < ApplicationRecord
                                                     BCrypt::Engine.cost
       BCrypt::Password.create(string, cost: cost)
     end
+    
+     # トークンを作る
+    def new_token
+      SecureRandom.urlsafe_base64
+    end
   end
   
   # 記憶トークンをユーザーと関連付け、トークンに対応する記憶ダイジェストをDBに保存
   def remember
+    # ランダムな文字列の入った、remember_token属性が設定
     self.remember_token = User.new_token
     # 記憶ダイジェストを更新する
+    # ランダムな文字列が入ったremember_tokenを、暗号化メソッドのUser.digestに渡して、
+    # 暗号化された、ランダムな文字列によって、remember_digestを更新
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
