@@ -1,0 +1,34 @@
+<header class="masthead">
+<div class="container signup-container">
+  <%= form_with(model: @user, url: user_path(@user), local: true) do |form| %>
+  <div class="row">
+    <div class="col">
+      <div class="masthead-subheading">プロフィール<br>情報変更</br></div>
+      
+        <%= render 'shared/error_messages' %>
+        
+        <div class="form-group">
+          <%= form.text_field :name, class: 'form-control', placeholder: "名前" %>
+        </div>
+        
+        <div class="form-group">
+          <%= form.email_field :email, class: 'form-control', placeholder: "メールアドレス" %>
+        </div>
+         
+        <div class="form-group">
+          <%= form.password_field :password, class: 'form-control', placeholder: "パスワード" %>
+        </div>
+        
+        <div class="form-group">
+          <%= form.password_field :password_confirmation, class: 'form-control', placeholder: "パスワード（再入力）" %>
+        </div>
+        
+        <div class="form-group">
+          <%= form.submit "変更", class: 'btn btn-info btn-lg form-submit' %>
+        </div>
+     
+       </div>
+    </div>
+    <% end %>
+</div>
+</header>

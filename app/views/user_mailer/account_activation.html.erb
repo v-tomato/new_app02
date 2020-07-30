@@ -1,0 +1,4 @@
+<h1>Schedule App からの認証メール</h1>
+<p><%= @user.name %>さんへ</p>
+<p>下記の『認証する』をクリックして認証を済ませてください。</p>
+<%= link_to "認証する", edit_account_activation_url(@user.activation_token, email: @user.email) %>

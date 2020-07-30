@@ -16,12 +16,11 @@ module SessionsHelper
     # cookies[:user_id]が存在すれば、永続セッションからユーザーを取得
     elsif (user_id = cookies.signed[:user_id])
       user = User.find_by(id: user_id)
-      if user && user.authenticated?(cookies[:remember_token])
+      if user && user.authenticated?(:remember, cookies[:remember_token])
         log_in user
         @current_user = user
       end
     end
-    
   end
   
 # ユーザーがログイン中の状態とは「sessionにユーザーidが存在している=current_user」と言うこと、
@@ -52,5 +51,21 @@ module SessionsHelper
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
   end
+  
+  # アクセスしようとしたURLを覚えておく
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
+  
+  # ログイン後、記憶したリンクがある場合、そこにリダイレクト
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
 
+
+  def current_user?(user)
+    user == current_user
+  end
+  
 end

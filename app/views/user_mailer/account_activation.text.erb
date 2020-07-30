@@ -1,0 +1,7 @@
+<!--User#account_activation-->
+
+<%= @user.name %>さんへ
+
+Schedule App からの認証メールです。
+下記のリンクをクリックして認証を済ませてください。
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
