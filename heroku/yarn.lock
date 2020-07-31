@@ -435,10 +435,10 @@
     cli-ux "^4.9.3"
     lodash "^4.17.11"
 
-"@heroku-cli/plugin-redis-v5@^7.42.3":
-  version "7.42.3"
-  resolved "https://registry.yarnpkg.com/@heroku-cli/plugin-redis-v5/-/plugin-redis-v5-7.42.3.tgz#310b00e28d440ae5442ca939263f825f146b552b"
-  integrity sha512-Cwzw2YHGpbVBMd3qS3u6qvv8ul79Vo5ldmZ7RsZWXYBD4FNS9QydbotmkkZMgOAviNKkvecWB96XlLtxdXDzAQ==
+"@heroku-cli/plugin-redis-v5@^7.42.6":
+  version "7.42.6"
+  resolved "https://registry.yarnpkg.com/@heroku-cli/plugin-redis-v5/-/plugin-redis-v5-7.42.6.tgz#d05ac6d075e6df60961a99ec5b7d9c75b71a784b"
+  integrity sha512-F7NKXlGnZ+90zrlDSfftpTG+LuplwBey63gzrEhqgSVCxxYT7s9yJokPzqf3XIFRjJmsVwPCDhTIx1dKykSM5Q==
   dependencies:
     heroku-cli-util "^8.0.11"
     redis-parser "^3.0.0"
