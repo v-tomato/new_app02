@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # create_activation_digestというメソッドを探し、ユーザーを作成する前に実行するようになる
   before_create :remember_token, :activation_token
   
+  before_create :create_activation_digest
+  
   # 仮属性なのでattr_accessorに追加
   attr_accessor :remember_token, :activation_token
   
