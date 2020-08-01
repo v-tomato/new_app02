@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
 
   # フォームから送信されたパラメーターからユーザーを特定する
   def show
