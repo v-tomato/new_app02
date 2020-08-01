@@ -13,11 +13,10 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.account_activation(@user).deliver_now
       flash[:info] = "認証用メールを送信しました。登録時のメールアドレスから認証を済ませてください"
-      redirect_to @user
+      redirect_to root_url
     else
       render 'new'
     end
-  end
 
   # フォームから送信されたパラメーターからユーザーを特定する
   def show
