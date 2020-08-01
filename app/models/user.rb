@@ -85,6 +85,7 @@ class User < ApplicationRecord
 
   
     private
+    
     # アドレスを全て小文字にするメソッド
     def downcase_email
       email.downcase!
