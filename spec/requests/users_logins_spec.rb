@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "UsersLogins", type: :request do
   
   let(:user) { create(:user) }
+  let(:no_activation_user) { create(:no_activation_user) }
   
   # 無効なログイン 
   def post_invalid_information
@@ -49,6 +50,16 @@ RSpec.describe "UsersLogins", type: :request do
         }
       }
       expect(flash[:danger]).not_to be_present
+    end
+    
+    # アクティベートしていないユーザをログイン失敗にする
+    it "fails because they have not activated account" do
+      get login_path
+      post_valid_information(no_activation_user)
+      expect(flash[:danger]).to be_truthy
+      expect(is_logged_in?).to be_falsey
+      follow_redirect!
+      expect(request.fullpath).to eq '/'
     end
   end
   
