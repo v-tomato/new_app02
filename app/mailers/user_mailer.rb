@@ -5,10 +5,10 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: "【重要】Schedule Appよりアカウント有効化のためのメールを届けました"
   end
 
-  # この部分は次章
-  def password_reset
-    @greeting = "Hi"
-    mail to: "to@example.org"
+
+  def password_reset(user)
+    @user = user
+    mail to: user.email, subject: "【重要】Schedule Appよりパスワード再設定のためのメールを届けました"
   end
   
 end

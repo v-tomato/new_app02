@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         redirect_back_or user
       else
-        flash[:danger] = "メールを確認してアクティベーションを済ませてください"
+        flash[:danger] = "メールを確認して認証を済ませてください"
         redirect_to root_url
       end
     else

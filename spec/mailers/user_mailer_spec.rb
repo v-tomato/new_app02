@@ -11,18 +11,28 @@ RSpec.describe UserMailer, type: :mailer do
     
     # メール送信のテスト
     it "renders the headers" do
+      user.activation_token = User.new_token
+      mail = UserMailer.account_activation(user)
       expect(mail.subject).to eq("【重要】Schedule Appよりアカウント有効化のためのメールを届けました")
       expect(mail.to).to eq(["michael@example.com"])
-      # expect(mail.to).to eq( sequence(:email) { |n| "tester#{n}@example.com" } )
       expect(mail.from).to eq(["noreply@example.com"])
-    end
-    
-    # メールプレビューのテスト
-    it "renders the body" do
-      expect(mail.body.encoded).to match user.name
-      expect(mail.body.encoded).to match user.activation_token
-      expect(mail.body.encoded).to match CGI.escape(user.email)
+      expect(mail.body.encoded.split(/\r\n/).map{|i| Base64.decode64(i)}.join).to include("Michael Example")
     end
   end
   
+  
+  describe "password_reset" do
+    
+    it "renders mails" do
+      user.reset_token = User.new_token
+      mail = UserMailer.password_reset(user)
+      expect(mail.subject).to eq "【重要】Schedule Appよりパスワード再設定のためのメールを届けました"
+      expect(mail.to).to eq ["michael@example.com"]
+      expect(mail.from).to eq ["noreply@example.com"]
+      expect(mail.body.encoded.split(/\r\n/).map{|i| Base64.decode64(i)}.join).to include "Michael Example"
+      expect(mail.body.encoded.split(/\r\n/).map{|i| Base64.decode64(i)}.join).to include user.reset_token
+      expect(mail.body.encoded.split(/\r\n/).map{|i| Base64.decode64(i)}.join).to include CGI.escape(user.email)
+    end
+    
+  end
 end
