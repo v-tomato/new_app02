@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :events
+  has_many :meetings
   
   before_save :downcase_email
   # create_activation_digestというメソッドを探し、ユーザーを作成する前に実行するようになる
