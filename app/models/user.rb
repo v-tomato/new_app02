@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :events
+  
   before_save :downcase_email
   # create_activation_digestというメソッドを探し、ユーザーを作成する前に実行するようになる
   before_create :remember_token, :activation_token

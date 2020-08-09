@@ -21,6 +21,7 @@ class AccountActivationsController < ApplicationController
       log_in user
       flash[:success] = "Schedule App へようこそ！"
       redirect_to user
+      # redirect_to events_url
     else
       flash[:danger] = "アクティベーションに失敗しました"
       redirect_to root_url
