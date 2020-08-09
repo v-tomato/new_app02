@@ -32,17 +32,17 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.start_time.strftime("%Y-%m-%d %H:%M") %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(blog.id) %></td>
-        <td><%= link_to 'Destroy',event_path(blog.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <!--<tbody>-->
+  <!--  <% @events.each do |event| %>-->
+  <!--    <tr>-->
+  <!--      <td><%= event.title %></td>-->
+  <!--      <td><%= event.start_time.strftime("%Y-%m-%d %H:%M") %></td>-->
+  <!--      <td><%= link_to 'Show', event %></td>-->
+  <!--      <td><%= link_to 'Edit', edit_event_path(blog.id) %></td>-->
+  <!--      <td><%= link_to 'Destroy',event_path(blog.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+  <!--    </tr>-->
+  <!--  <% end %>-->
+  <!--</tbody>-->
 </table>
 
 <br>
