@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
   before_action :logged_in_user
-    
+  
   def index
+    @events = current_user.events
   end
   
   def show
@@ -48,4 +49,5 @@ class EventsController < ApplicationController
   def update_params
     params.permit(:event).permit(:start_time,:title, :content,:user_id)
   end
+  
 end
