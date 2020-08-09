@@ -20,12 +20,13 @@
         <%= stylesheet_link_tag "styles", :media => "all" %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
         <%= csrf_meta_tag %>
+        <%= render 'layouts/header' %>
   </head>
   
   <body id="page-top">
     <!--<div class="masthead-subheading"><%= full_title(yield(:title)) %></div>-->
    
-    <%= render 'layouts/header' %>
+    
     <%= render 'shared/flash_messages' %>
     
      <%= yield %>
