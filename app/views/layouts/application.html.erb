@@ -33,7 +33,6 @@
         <% if logged_in? %>
           <li class="nav-item"><%=link_to "Home", root_path, class: "nav-link js-scroll-trigger" %></li>
           <li class="nav-item"><%=link_to "Logout", logout_path, method: :delete, class: "nav-link js-scroll-trigger" %></li>
-          <li class="nav-item"><%=button_to "Logout", logout_path, method: :delete, class: "nav-link js-scroll-trigger" %></li>
           <li class="nav-item"><%=link_to "Profile", edit_user_path(current_user), class: "nav-link js-scroll-trigger" %></li>
           <li class="nav-item"><%=link_to "Contact", contact_path, class: "nav-link js-scroll-trigger" %></li>
         <% else %>
