@@ -2,8 +2,10 @@
 </header>  
 <div class = "calendar-1">
   
-<%= link_to 'スケジュールを入力', new_meeting_path %>
-<br>
+ <div class = "schedule-enter">
+  <%= link_to 'スケジュールを入力', new_meeting_path %>
+ </div>
+
 <%= month_calendar events: @meetings do |date, meetings| %>
   <%= date %>
 
