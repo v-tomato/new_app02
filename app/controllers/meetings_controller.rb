@@ -17,14 +17,14 @@ class MeetingsController < ApplicationController
     def update
       @meeting = current_user.meetings.find(params[:id])
       @meeting.update(update_params)
-      redirect_to meetings_path(@user.id)
+      redirect_to meeting_path(@user.id)
     end
    
     def create
       @meeting = current_user.meetings.new(meeting_memo)
       if @meeting.save
         flash[:success] = "入力完了"
-        redirect_to meetings_path(@user.id)
+        redirect_to meeting_path(@user.id)
       else
         flash[:danger] = "入力が失敗しました"
         render "new"
