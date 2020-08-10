@@ -17,15 +17,19 @@ class MeetingsController < ApplicationController
     
     def update
       @meeting = current_user.meetings.find(params[:id])
-      @meeting.update(update_params)
-      redirect_to meeting_path(@user.id)
+      if @meeting.update(update_params)
+        flash[:success] = "編集完了"
+        redirect_to meetings_path(current_user)
+      else
+        flash[:danger] = "編集が失敗しました"
+        render "edit"
+      end
     end
    
     def create
       @meeting = current_user.meetings.new(meeting_memo)
       if @meeting.save
         flash[:success] = "入力完了"
-        # redirect_to meeting_path(@user.id)
         redirect_to meetings_path(current_user)
       else
         flash[:danger] = "入力が失敗しました"
@@ -36,7 +40,7 @@ class MeetingsController < ApplicationController
     def destroy
       @trainings = current_user.meetings.find(params[:id])
       @trainings.destroy
-      redirect_to meetings_path(@user.id)
+      redirect_to meetings_path(current_user)
     end
     
     
