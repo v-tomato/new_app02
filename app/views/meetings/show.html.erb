@@ -1,17 +1,17 @@
 
 <p>
   <strong>タイトル</strong>
-  <%= @meeting.title %>
+  <%= meeting.title %>
 </p>
 
 <p>
   <strong>時間</strong>
-  <%= @meeting.start_time.strftime("%Y-%m-%d %H:%M") %>
+  <%= meeting.start_time.strftime("%Y-%m-%d %H:%M") %>
 </p>
 
 <p>
   <strong>内容</strong>
-  <%= @meeting.content %>
+  <%= meeting.content %>
 </p>
 
 <%= link_to '変更', edit_meeting_path(@meeting) %> |
