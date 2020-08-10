@@ -1,23 +1,73 @@
-<%= form_with(model: @event, local: true) do |form| %>
+<!--<%= form_with(model: @event, local: true) do |form| %>-->
 
-  <div class="title">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<!--  <div class="title">-->
+<!--    <%= form.label :title %>-->
+<!--    <%= form.text_field :title %>-->
+<!--  </div>-->
+
+<!--    <div class="time">-->
+<!--    <%= form.label :start_time %>-->
+<!--    <%= form.datetime_select :start_time %>-->
+<!--  </div>-->
+
+<!--  <div class="content">-->
+<!--    <%= form.label :content %>-->
+<!--    <%= form.text_field :content %>-->
+<!--  </div>-->
+
+
+<!--  <div class="submit">-->
+<!--    <%= form.submit %>-->
+<!--  </div>-->
+
+<!--<% end %>-->
+
+
+    <!--<%= form_with(scope: :session, url: login_path, local: true) do |form| %>-->
+    
+    <%= form_with(model: @event, local: true) do |form| %>
+　　　　
+　　　　 <!--<% flash.each do |message_type, message| %>-->
+     <!-- 　　　　　<%= tag.div message, class: "alert alert-#{message_type}" %>-->
+   　　<!--　　　 <% end %>-->
+   　　
+   　　
+<header class="masthead">
+<div class="container signup-container">
+  <div class="row">
+    <div class="col">　　　　
+        
+        <div class="form-group">  
+　　　　  <%= form.text_field :title, class: 'form-control', placeholder: "タイトル" %>
+        </div>
+
+        <div class="form-group">
+          <!--<%= form.password_field :password, class: 'form-control', placeholder: "パスワード" %>-->
+          <%= form.datetime_select :start_time, class: 'form-control', placeholder: "開始時刻" %>
+        </div>
+        
+        <div class="form-group">
+          <%= form.text_field :content, class: 'form-control', placeholder: "内容"%>
+        </div>
+        
+        <div class="form-group">
+          <%= form.datetime_select :start_time, class: 'form-control', placeholder: "開始時刻" %>
+        </div>
+        
+        
+        
+        
+        <div class="form-group">
+          <%= form.submit "ログイン",  class: "btn btn-info btn-lg form-submit" %>
+        </div>
+        
+        <div class="form-group form-check">
+          <%= form.check_box :remember_me, class: 'form-check-input' %>
+          <%= form.label :remember_me, '次から保存（ログイン省略）', class: 'form-check-label' %>
+        </div>
+        
+     <% end %>
+　　</div>
   </div>
-
-    <div class="time">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
-  </div>
-
-  <div class="content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-
-
-  <div class="submit">
-    <%= form.submit %>
-  </div>
-
-<% end %>
+</div>
+</header>
