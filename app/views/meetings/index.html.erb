@@ -2,12 +2,15 @@
 </header>  
 <div class = "calendar-1">
   
+<%= link_to '日記をかく', new_event_path %>
+<br>
 <%= month_calendar events: @meetings do |date, meetings| %>
   <%= date %>
 
   <% meetings.each do |meeting| %>
     <div>
-      <%= meeting.name %>
+      <%= link_to meeting.name, event %>
+      <%= link_to '日記をかく', new_event_path %>
     </div>
   <% end %>
 <% end %>
