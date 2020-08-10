@@ -6,7 +6,7 @@
 
   <% meetings.each do |meeting| %>
     <div>
-      <%= meeting.name %>
+      <%= link_to meeting.name, new_meeting %>
     </div>
   <% end %>
 <% end %>
