@@ -11,7 +11,7 @@
 
   <% meetings.each do |meeting| %>
     <div>
-      <%= link_to meeting.title, user_meeting_path(@current_user) %>
+      <%= link_to meeting.title, user_meeting_path(user.id) %>
     </div>
   <% end %>
 <% end %>
