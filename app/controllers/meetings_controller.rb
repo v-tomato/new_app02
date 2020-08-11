@@ -2,7 +2,7 @@ class MeetingsController < ApplicationController
     
     def index
       # @meetings = current_user.meetings 
-      @meetings = @user.meetings 
+      @meetings = @user.meetings.all
     end
     
     def show
