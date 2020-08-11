@@ -1,11 +1,12 @@
 class MeetingsController < ApplicationController
     
     def index
-      # @meetings = current_user.meetings 
-      @meetings = @user.meetings.all
+      @user = cuurent_user
+      @meetings = current_user.meetings 
     end
     
     def show
+      @user = cuurent_user
       @meeting = current_user.meetings.find(params[:id])
     end
    
