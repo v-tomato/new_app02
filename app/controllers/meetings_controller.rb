@@ -10,6 +10,7 @@ class MeetingsController < ApplicationController
     end
    
     def new
+      @meeting = current_user.meetings
     end
    
     def edit
