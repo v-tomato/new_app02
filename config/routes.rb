@@ -22,6 +22,6 @@ Rails.application.routes.draw do
   
   resources :password_resets, only: [:new, :create, :edit, :update]
   
-  resources :meetings, only: [:index, :show, :create, :edit, :update, :destroy]
+  resources :meetings
   
 end
