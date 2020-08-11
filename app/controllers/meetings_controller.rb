@@ -19,10 +19,10 @@ class MeetingsController < ApplicationController
     def update
       @meeting = current_user.meetings.find(params[:id])
       if @meeting.update(update_params)
-        flash[:success] = "編集完了"
+        flash[:success] = "変更完了"
         redirect_to meetings_path(current_user)
       else
-        flash[:danger] = "編集が失敗しました"
+        flash[:danger] = "変更が失敗しました"
         render "edit"
       end
     end
