@@ -13,5 +13,6 @@
   <%= @meeting.content %>
 </p>
 
+<%= link_to '削除', edit_meeting_path(@meeting) %> |
 <%= link_to '変更', edit_meeting_path(@meeting) %> |
 <%= link_to '戻る', meetings_path %>
