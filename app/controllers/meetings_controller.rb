@@ -1,11 +1,13 @@
 class MeetingsController < ApplicationController
-  before_action :set_user
+  # before_action :set_user
     
     def index
       @meetings = current_user.meetings 
     end
     
     def show
+      @user = User.find(params[:id])
+      @user = current_user
       @meetings = current_user.meetings.find(params[:id])
     end
    
@@ -47,10 +49,10 @@ class MeetingsController < ApplicationController
     
     private
     
-    def set_user
-      @user = User.find(params[:id])
-      @user = current_user
-    end
+    # def set_user
+    #   @user = User.find(params[:id])
+    #   @user = current_user
+    # end
     
     def meeting_memo
       params.permit(:start_time,:title, :content,:user_id)
