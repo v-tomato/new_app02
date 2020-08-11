@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_action :set_user
+  before_action :set_user, only: [:show]
     
     def index
       @meetings = current_user.meetings 
@@ -49,6 +49,7 @@ class MeetingsController < ApplicationController
     
     def set_user
       @user = User.find(params[:id])
+      @user = current_user
     end
     
     def meeting_memo
