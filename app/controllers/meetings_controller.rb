@@ -50,7 +50,6 @@ class MeetingsController < ApplicationController
     
     def set_user
       @user = User.find(params[:id])
-      @user = current_user
     end
     
     def meeting_memo
