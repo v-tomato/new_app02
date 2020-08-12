@@ -8,7 +8,6 @@ class MeetingsController < ApplicationController
     def show
       @user = current_user
       @meeting = current_user.meetings.find(params[:id])
-      # @meeting = current_user.meetings.find(id: @meeting)
     end
    
     def new
@@ -45,8 +44,9 @@ class MeetingsController < ApplicationController
     end
    
     def destroy
-      @user = current_user
-      @meeting = current_user.meetings.find(params[:id])
+      # @user = current_user
+      # @meeting = current_user.meetings.find(params[:id])
+      # @meeting = current_user.meetings.find(params[:id])
       @meeting.destroy
       flash[:success] = "削除しました"
       redirect_to user_meetings_path(id: current_user)
