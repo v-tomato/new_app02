@@ -6,7 +6,7 @@ class MeetingsController < ApplicationController
     end
     
     def show
-      @user = cuurent_user
+      @user = current_user
       @meeting = current_user.meetings.find(params[:id])
     end
    
@@ -15,10 +15,12 @@ class MeetingsController < ApplicationController
     end
    
     def edit
+      @user = current_user
       @meeting = current_user.meetings.find(params[:id])
     end
     
     def update
+      @user = current_user
       @meeting = current_user.meetings.find(params[:id])
       if @meeting.update(update_params)
         flash[:success] = "変更完了"
@@ -30,6 +32,7 @@ class MeetingsController < ApplicationController
     end
    
     def create
+      @user = current_user
       @meeting = current_user.meetings.new(meeting_memo)
       if @meeting.save
         flash[:success] = "入力完了"
@@ -41,8 +44,8 @@ class MeetingsController < ApplicationController
     end
    
     def destroy
-      @trainings = current_user.meetings.find(params[:id])
-      @trainings.destroy
+      @meetings = current_user.meetings.find(params[:id])
+      @meetings.destroy
       flash[:success] = "削除しました"
       redirect_to meetings_path(current_user)
     end
