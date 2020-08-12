@@ -10724,3 +10724,21 @@ section#contact form#contactForm :-ms-input-placeholder {
 
   .has-events {}
 }
+
+////////////////////////////////////////////////////////////////////////////
+.signup-container-2{
+  width: 100%;
+  max-width: 330px;
+  margin: auto;
+  padding-top: 1rem !important;
+  //追加
+  background-color: #FFFFFF;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+}
+
+.signup-container-2 p{
+  color: #000000;
+}
