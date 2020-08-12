@@ -47,7 +47,7 @@ class MeetingsController < ApplicationController
       @meetings = current_user.meetings.find(params[:id])
       @meetings.destroy
       flash[:success] = "削除しました"
-      redirect_to meetings_path(current_user)
+      redirect_to user_meetings_path(id: current_user)
     end
     
     
