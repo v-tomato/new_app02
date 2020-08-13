@@ -10,6 +10,7 @@ class MeetingsController < ApplicationController
       @user = current_user
       # @meeting = current_user.meetings.find(params[:id])
       @meeting = current_user.meetings.find(params[:id])
+      binding.pry
     end
    
     def new
