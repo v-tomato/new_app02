@@ -1,4 +1,5 @@
 class MeetingsController < ApplicationController
+  before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
     
     def index
       @user = current_user
@@ -34,7 +35,7 @@ class MeetingsController < ApplicationController
    
     def create
       @user = current_user
-      @meeting = current_user.meetings.build(meeting_memo)
+      @meeting = current_user.meetings.build(meeting_memo)if logged_in?
       if @meeting.save
         flash[:success] = "入力完了"
         redirect_to meetings_path(id: current_user)
@@ -45,7 +46,7 @@ class MeetingsController < ApplicationController
     end
    
     def destroy
-      # @user = current_user
+      @user = current_user
       @meeting = current_user.meetings.find(params[:id])
       @meeting.destroy
       flash[:success] = "削除しました"
