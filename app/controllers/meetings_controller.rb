@@ -11,6 +11,7 @@ class MeetingsController < ApplicationController
     end
    
     def new
+      @user = current_user
       @meeting = current_user.meetings
     end
    
@@ -38,8 +39,8 @@ class MeetingsController < ApplicationController
         flash[:success] = "入力完了"
         redirect_to meetings_path(id: current_user)
       else
-        flash[:danger] = "入力が失敗しました"
-        render "new"
+        # flash[:danger] = "入力が失敗しました"
+        # render "new"
       end
     end
    
