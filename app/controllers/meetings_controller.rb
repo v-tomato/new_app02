@@ -11,10 +11,10 @@ class MeetingsController < ApplicationController
       @meeting = current_user.meetings.find(params[:id])
     end
    
-    def new
-      @user = current_user
-      @meeting = current_user.meetings
-    end
+    # def new
+    #   @user = current_user
+    #   @meeting = current_user.meetings
+    # end
    
     def edit
       @user = current_user
