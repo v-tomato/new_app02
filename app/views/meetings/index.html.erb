@@ -3,7 +3,7 @@
 <div class = "calendar-1">
   
  <div class = "schedule-enter">
-  <%= link_to 'スケジュールを入力', new_meeting_path(id: current_user) %>
+  <%= link_to 'スケジュールを入力', new_meeting_path(id: current_user.meetings) %>
  </div>
 
 <%= month_calendar events: @meetings do |date, meetings| %>
