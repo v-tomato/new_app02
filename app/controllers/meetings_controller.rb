@@ -9,7 +9,7 @@ class MeetingsController < ApplicationController
     def show
       @user = current_user
       # @meeting = current_user.meetings.find(params[:id])
-      @meeting = current_user.meetings.find(id)
+      @meeting = current_user.meetings.find(params[:id])
     end
    
     def new
@@ -61,7 +61,7 @@ class MeetingsController < ApplicationController
     
     def meeting_memo
       # params.permit(:start_time,:title, :content,:user_id)
-      params.require(:meeting).permit(:start_time,:title, :content,:user_id)
+      params.require(:meeting).permit(:start_time,:title, :content,:user_id, :id)
     end
    
     def update_params
