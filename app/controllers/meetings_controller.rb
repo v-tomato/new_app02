@@ -35,8 +35,8 @@ class MeetingsController < ApplicationController
    
     def create
       @user = current_user
-      @meeting = current_user.meetings.build(meeting_memo)if logged_in?
-      if @meeting.save
+      @meeting = current_user.meetings.build!(meeting_memo)if logged_in?
+      if @meeting.save!
         flash[:success] = "入力完了"
         redirect_to meetings_path(id: current_user)
       else
