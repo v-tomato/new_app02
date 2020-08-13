@@ -61,7 +61,7 @@ class MeetingsController < ApplicationController
     
     def meeting_memo
       # params.permit(:start_time,:title, :content,:user_id)
-      params.require(:meeting).permit(:start_time,:title, :content,:user_id, :meeting_id)
+      params.require(:meeting).permit(:start_time,:title, :content,:user_id)
     end
    
     def update_params
