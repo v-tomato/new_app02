@@ -6,7 +6,7 @@ class MeetingsController < ApplicationController
     def index
       @user = current_user
       # @meetings = current_user.meetings
-      @meeting.all
+      @meeting = Meeting.all
     end
     
     def show
