@@ -23,6 +23,8 @@ class UsersController < ApplicationController
   # フォームから送信されたパラメーターからユーザーを特定する
   def show
     @user = User.find(params[:id])
+    @user = current_user
+    @meeting = Meeting.find(params[:id])
   end
   
   # プロフィールの編集
