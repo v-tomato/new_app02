@@ -1,6 +1,6 @@
 class MeetingsController < ApplicationController
   before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
-  before_action :set_user
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   
     
     def index
@@ -10,7 +10,7 @@ class MeetingsController < ApplicationController
     
     def show
       @user = current_user
-      @meeting = current_user.meetings.find_by(id: params[:id])
+      @meeting = current_user.meetings.find_by(params[:id])
     end
    
     def new
