@@ -11,8 +11,7 @@ class MeetingsController < ApplicationController
     def show
       @user = current_user
       # @meeting = current_user.meetings.find(params[:id])
-      # @meeting = Meeting.find(params[:id])
-      @meeting = Meeting.find(@meeting.id)
+      @meeting = Meeting.find(params[:id])
     end
    
     def new
