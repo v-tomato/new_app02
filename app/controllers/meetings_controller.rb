@@ -30,7 +30,7 @@ class MeetingsController < ApplicationController
       @meeting = current_user.meetings.find(params[:id])
       if @meeting.update(update_params)
         flash[:success] = "変更完了"
-        redirect_to meetings_path(id: current_user)
+        redirect_to user_meetings_path(id: current_user)
       else
         flash[:danger] = "変更が失敗しました"
         render "edit"
@@ -42,7 +42,7 @@ class MeetingsController < ApplicationController
       @meeting = current_user.meetings.build(meeting_memo)if logged_in?
       if @meeting.save!
         flash[:success] = "入力完了"
-        redirect_to meetings_path(id: current_user)
+        redirect_to user_meetings_path(id: current_user)
       else
         flash[:danger] = "入力が失敗しました"
         render "new"
@@ -54,7 +54,7 @@ class MeetingsController < ApplicationController
       @meeting = current_user.meetings.find(params[:id])
       @meeting.destroy
       flash[:success] = "削除しました"
-      redirect_to meetings_path(id: current_user)
+      redirect_to user_meetings_path(id: current_user)
       
     end
     

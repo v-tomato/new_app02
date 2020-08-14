@@ -2,8 +2,8 @@
 </header>  
 <div class = "calendar-1">
   
- <div class = "schedule-enter">
-  <%= link_to 'スケジュールを入力', new_meeting_path(id: current_user) %>
+<div class = "schedule-enter">
+  <%= link_to 'スケジュールを入力', new_user_meeting_path(id: current_user) %>
  </div>
 
 <%= month_calendar events: @meetings do |date, meetings| %>
@@ -11,7 +11,7 @@
 
   <% meetings.each do |meeting| %>
     <div>
-      <%= link_to meeting.title, meeting_path(id: current_user) %>
+      <%= link_to meeting.title, user_meeting_path(id: current_user) %>
     </div>
   <% end %>
 <% end %>
