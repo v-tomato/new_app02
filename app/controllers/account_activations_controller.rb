@@ -20,7 +20,7 @@ class AccountActivationsController < ApplicationController
       user.activate
       log_in user
       flash[:success] = "Schedule App へようこそ！"
-      redirect_to user_meetings_path(id: current_user)
+      redirect_to user
     else
       flash[:danger] = "アクティベーションに失敗しました"
       redirect_to root_url
