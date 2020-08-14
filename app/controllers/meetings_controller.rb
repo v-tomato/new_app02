@@ -11,7 +11,7 @@ class MeetingsController < ApplicationController
     def show
       @user = current_user
       # @meeting = current_user.meetings.find(params[:id])
-      @meeting.find(params[:id])
+      @meeting = Meeting.find(params[:id])
     end
    
     def new
@@ -35,7 +35,7 @@ class MeetingsController < ApplicationController
         render "edit"
       end
     end
-   
+    
     def create
       @user = current_user
       @meeting = current_user.meetings.build(meeting_memo)if logged_in?
