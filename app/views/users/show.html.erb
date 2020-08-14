@@ -1,44 +1,22 @@
-<header class="masthead2">
-</header>  
-<div class = "calendar-1">
-  
- <div class = "schedule-enter">
-  <%= link_to 'スケジュールを入力', new_meeting_path(id: current_user) %>
- </div>
 
-<%= month_calendar events: @meetings do |date, meetings| %>
-  <%= date %>
-
-  <% meetings.each do |meeting| %>
-    <div>
-      <%= link_to meeting.title, meeting_path(id: current_user) %>
+<header class="masthead">
+<% provide(:title, @user.name) %>
+<div class="container">
+  <div class="row">
+    <div class="col bg-primary">
+      form
+      <%= link_to "My Schedule へ", meetings_path(current_user) %>
     </div>
-  <% end %>
-<% end %>
-
+    <div class="col bg-secondary">
+      figure
+    </div>
+  </div>
+  <div class="row">
+    <div class="col bg-warning">
+      log
+    </div>
+  </div>
 </div>
-
-
-
-
-<!--<header class="masthead">-->
-<!--<% provide(:title, @user.name) %>-->
-<!--<div class="container">-->
-<!--  <div class="row">-->
-<!--    <div class="col bg-primary">-->
-<!--      form-->
-<!--      <%= link_to "My Schedule へ", meetings_path(current_user) %>-->
-<!--    </div>-->
-<!--    <div class="col bg-secondary">-->
-<!--      figure-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="row">-->
-<!--    <div class="col bg-warning">-->
-<!--      log-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-<!--</header>-->
+</header>
 
 
