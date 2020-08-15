@@ -14,7 +14,7 @@ class MeetingsController < ApplicationController
     def show
       @user = current_user
       # @meeting = current_user.meetings.find(params[:id])
-      @meeting = Meeting.find(params[:id])
+      @meeting = current_user.meetings.find(params[:id])
     end
    
     def new
@@ -24,7 +24,7 @@ class MeetingsController < ApplicationController
    
     def edit
       @user = current_user
-      @meeting = current_user.meetings.find(params[:id])
+      @meeting = Meeting.find(params[:id])
     end
     
     def update
