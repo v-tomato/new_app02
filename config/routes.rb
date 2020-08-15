@@ -25,8 +25,7 @@ Rails.application.routes.draw do
 #   resources :meetings, only: [:new, :show, :index, :create, :edit, :update, :destroy]
   
     resources :users do
-     resources :meetings, only: [:index, :new, :create]
+     resources :meetings
     end
     
-  resources :meetings, only: [:show, :edit, :update, :destroy]
 end
