@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col">　　
     
-     <%= form_with(model: @meeting, url: user_meetings_path(id: current_user), local: true, method: :patch) do |form| %>   
+     <%= form_with(model: @meeting, url: user_meetings_path(@meeting), local: true, method: :patch) do |form| %>   
         <div class="form-group">  
 　　　　  <%= form.text_field :title, class: 'form-control', placeholder: "タイトル" %>
         </div>
