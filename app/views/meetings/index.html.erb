@@ -12,7 +12,8 @@
 
   <% meetings.each do |meeting| %>
     <div>
-      <%= link_to meeting.title, user_meeting_path(id: current_user.id) %>
+      <!--<%= link_to meeting.title, user_meeting_path(id: current_user.id) %>-->
+      <%= link_to meeting.title, user_meeting_path(@user, meeting) %>
     </div>
   <% end %>
 <% end %>
