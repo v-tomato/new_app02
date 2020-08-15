@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :meeting do
+    association :user
     
     trait :meeting_1 do
       title  {"test1"}
