@@ -20,9 +20,9 @@
      </p>
 
     <p>
-      <%= link_to '変更', edit_user_meeting_path(@meetimg.id) %> |
-      <%= link_to '削除', user_meeting_path(@meetimg.id), method: :delete %>|
-      <%= link_to '戻る', user_meetings_path(@meetimg.id) %>
+      <%= link_to '変更', edit_user_meeting_path(id: current_user) %> |
+      <%= link_to '削除', user_meeting_path(id: current_user), method: :delete %>|
+      <%= link_to '戻る', user_meetings_path(id: current_user) %>
     </p>
 　　
 　　</div>
