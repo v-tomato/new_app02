@@ -1,11 +1,14 @@
 <!--カレンダー表示ページ-->
 <header class="masthead2">
 </header>  
+
 <div class = "calendar-1">
-  
-<div class = "schedule-enter">
-  <%= link_to 'スケジュールを入力', new_user_meeting_path(current_user) %>
+
+<br>  
+ <div class = "schedule-enter">
+  <%= link_to 'スケジュールを入力', new_user_meeting_path(current_user), class: "btn btn-primary-2" %>
  </div>
+<br>
 
 <%= month_calendar events: @meetings do |date, meetings| %>
   <%= date %>

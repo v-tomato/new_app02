@@ -2,12 +2,12 @@ class MeetingsController < ApplicationController
   before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
   # 修正ポイント
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
-  
+  before_action :correct_user, only: :destroy
     
     def index
       @user = current_user
-      # @meetings = current_user.meetings
-      @meetings = Meeting.all
+      @meetings = current_user.meetings
+      # @meetings = Meeting.all
     end
     
     # 問題アリ??
@@ -24,7 +24,8 @@ class MeetingsController < ApplicationController
    
     def edit
       @user = current_user
-      @meeting = Meeting.find(params[:id])
+      @meeting = current_user.meetings.
+      find(params[:id])
     end
     
     def update
@@ -42,7 +43,7 @@ class MeetingsController < ApplicationController
     def create
       @user = current_user
       @meeting = current_user.meetings.build(meeting_memo)if logged_in?
-      if @meeting.save!
+      if @meeting.save
         flash[:success] = "入力完了"
         redirect_to user_meetings_path(@meeting.id)
       else
@@ -57,7 +58,6 @@ class MeetingsController < ApplicationController
       @meeting.destroy
       flash[:success] = "削除しました"
       redirect_to user_meetings_path(@meeting.id)
-      
     end
     
     
@@ -74,5 +74,10 @@ class MeetingsController < ApplicationController
    
     def update_params
       params.require(:meeting).permit(:start_time,:title, :content,:user_id)
+    end
+    
+    def correct_user
+      @meeting = current_user.meetings.find_by(id: params[:id])
+      redirect_to root_url if @meeting.nil?
     end
 end

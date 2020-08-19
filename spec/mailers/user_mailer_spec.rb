@@ -15,6 +15,7 @@ RSpec.describe UserMailer, type: :mailer do
       mail = UserMailer.account_activation(user)
       expect(mail.subject).to eq("【重要】Schedule Appよりアカウント有効化のためのメールを届けました")
       expect(mail.to).to eq(["michael@example.com"])
+      # expect(mail.to).to eq(["tester3@example.com"])
       expect(mail.from).to eq(["noreply@example.com"])
       expect(mail.body.encoded.split(/\r\n/).map{|i| Base64.decode64(i)}.join).to include("Michael Example")
     end

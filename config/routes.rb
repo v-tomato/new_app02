@@ -27,5 +27,11 @@ Rails.application.routes.draw do
     resources :users do
      resources :meetings, only: [:new, :show, :index, :create, :edit, :update, :destroy]
     end
-    
+ 
+ 
+  # gem 'letter_opener_web'
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end 
+ 
 end

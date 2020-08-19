@@ -2022,6 +2022,7 @@ pre code {
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
 @media (prefers-reduced-motion: reduce) {
   .form-control {
     transition: none;
@@ -2491,6 +2492,14 @@ fieldset:disabled a.btn {
   background-color: #fed136;
   border-color: #fed136;
 }
+
+//追加/////////////////////////////////////////////////////////////////////////////////////////////////////
+.btn-primary-2 {
+  color: #fff;
+  background-color: #0000FF;
+  border-color: #0000FF;
+}
+
 .btn-primary:hover {
   color: #fff;
   background-color: #fec810;
@@ -10646,6 +10655,7 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 
+
 .simple-calendar {
   table {
     -webkit-border-horizontal-spacing: 0px;
@@ -10739,6 +10749,3 @@ section#contact form#contactForm :-ms-input-placeholder {
   background-size: cover;
 }
 
-.signup-container-2 p{
-  color: #000000;
-}
