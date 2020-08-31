@@ -8,3 +8,9 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード（再入力）
+    meeting:
+        title: タイトル
+        start_time: 開始時間
+        content: 内容
+        picture: 画像
+        user_id: ユーザID

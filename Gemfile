@@ -51,6 +51,12 @@ gem 'simple_calendar', '~> 2.0'
 
 gem 'pry-rails'
 
+# Active Storage
+gem 'aws-sdk-s3'
+
+# 画像サイズに制限
+gem 'mini_magick'
+
 group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

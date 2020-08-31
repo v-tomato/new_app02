@@ -3,7 +3,9 @@
 <div class="container signup-container-2">
   <div class="row">
     <div class="col">　　
-
+    
+    <div class = "show-meetings-text" >
+        
     <p>
       <strong>タイトル</strong>
       <%= @meeting.title %>
@@ -18,7 +20,20 @@
       <strong>内容</strong>
       <%= @meeting.content %>
      </p>
-
+     
+     
+     <p>
+    　<strong>画像</strong>
+      <% @meetings.each do |meeting| %>
+        <% if meeting.picture.attached? %>
+          <%= image_tag meeting.resize_picture %>
+          <!--<%= image_tag @meeting.picture %>-->
+       <% end %>
+       <% end %>  
+     </p>
+     
+     </div>
+     
     <p>
       <%= link_to '変更', edit_user_meeting_path(@meeting) %> |
       <%= link_to '削除', user_meeting_path(@meeting), method: :delete %>|
@@ -29,3 +44,43 @@
   </div>
 </div>
 </header>
+
+
+<!--<header class="masthead">-->
+<!--<div class="container signup-container-2">-->
+<!--  <div class="row">-->
+<!--    <div class="col">　　-->
+    
+<!--    <div class = "show-meetings-text" >-->
+
+<!--      <% @meetings.each do |meeting| %>-->
+      
+<!--        <p>-->
+<!--        <strong>タイトル</strong>-->
+<!--          <%= meeting.title %>-->
+<!--        </p>-->
+
+<!--        <p>-->
+<!--        <strong>開始時刻</strong>-->
+<!--         <%= meeting.start_time.strftime("%Y-%m-%d %H:%M") %>-->
+<!--        </p>-->
+
+<!--        <p>-->
+<!--        <strong>内容</strong>-->
+<!--          <%= meeting.content %>-->
+<!--        </p>-->
+     
+     
+<!--        <p>-->
+<!--    　  <strong>画像</strong>-->
+<!--          <% if meeting.picture.attached? %>-->
+<!--            <%= image_tag meeting.resize_picture %>-->
+<!--          <% end %>  -->
+<!--        </p>-->
+      
+<!--      <% end %>-->
+     
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--</header>-->

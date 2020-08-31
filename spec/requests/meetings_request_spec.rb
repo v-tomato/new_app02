@@ -1,13 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Meetings", type: :request do
-
-# 他ユーザの投稿編集が無効か
-# フォームが全て空欄の投稿編集が無効か
-# ログインしているユーザの投稿編集が有効か
-
-  # let(:user) { create(:user) }
-  # let(:other_user) { create(:other_user) }
   
   before do
     user = FactoryBot.create(:user)
@@ -71,7 +64,7 @@ RSpec.describe "Meetings", type: :request do
         expect(flash[:success]).to be_truthy
       end
       
-      # ログインしていないユーザの投稿削除が無効か
+      # ログインしていないユーザの投稿削除が無効
       it "is invalid destroy by not logged in user" do
         delete meetings_path(1)
         follow_redirect!
@@ -97,7 +90,15 @@ RSpec.describe "Meetings", type: :request do
     describe "GET / /users/:user_id/meetings/:id/edit" do
       # ログイン後の投稿編集は有効か
       it "is valid by logged in user" do
-       
+        log_in_as(user)
+        get user_path(user)
+        post_valid_information
+        follow_redirect!
+        get edit_meeting_path(1)
+        expect(request.fullpath).to eq "/users/1/meetings/1/edit"
+        patch_valid_information
+        follow_redirect!
+        expect(request.fullpath).to eq "/users/1/meetings"
       end
       
       # ログインしていないユーザの投稿編集が無効か
@@ -110,7 +111,34 @@ RSpec.describe "Meetings", type: :request do
         follow_redirect!
         get edit_meeting_path(1)
         follow_redirect!
-        expect(request.fullpath).to eq '/login'
+        expect(request.fullpath).to eq "/login"
+      end
+      
+      # 他ユーザの投稿編集が無効か
+      it "is invalid edit by other user " do
+        log_in_as(user)
+        get user_path(user)
+        post_valid_information
+        follow_redirect!
+        delete logout_path
+        follow_redirect!
+        log_in_as(other_user)
+        get edit_meeting_path(1)
+        expect(request.fullpath).to eq "/"
+      end
+      
+      # フォームが全て空欄の投稿編集が無効か
+      it "is invalid edit when all forms are empty" do
+        log_in_as(user)
+        get user_path(user)
+        post_invalid_information
+        follow_redirect!
+        get edit_meeting_path(1)
+        follow_redirect!
+        expect(request.fullpath).to eq "/users/1/meetings/1/edit"
+        patch_invalid_information
+        follow_redirect!
+        expect(request.fullpath).to eq "users/1/meetings/new"
       end
     end
  

@@ -7,14 +7,13 @@ class MeetingsController < ApplicationController
     def index
       @user = current_user
       @meetings = current_user.meetings
-      # @meetings = Meeting.all
     end
     
-    # 問題アリ??
     def show
       @user = current_user
       # @meeting = current_user.meetings.find(params[:id])
       @meeting = current_user.meetings.find(params[:id])
+      @meetings = current_user.meetings
     end
    
     def new
@@ -68,12 +67,11 @@ class MeetingsController < ApplicationController
     # end
     
     def meeting_memo
-      # params.permit(:start_time,:title, :content,:user_id)
-      params.require(:meeting).permit(:start_time,:title, :content,:user_id)
+      params.require(:meeting).permit(:start_time, :title, :content, :user_id, :picture)
     end
    
     def update_params
-      params.require(:meeting).permit(:start_time,:title, :content,:user_id)
+      params.require(:meeting).permit(:start_time, :title, :content, :user_id, :picture)
     end
     
     def correct_user
