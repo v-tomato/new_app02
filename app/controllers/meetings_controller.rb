@@ -62,10 +62,6 @@ class MeetingsController < ApplicationController
     
     private
     
-    # def set_user
-    #   @user = User.find(params[:id])
-    # end
-    
     def meeting_memo
       params.require(:meeting).permit(:start_time, :title, :content, :user_id, :picture)
     end
