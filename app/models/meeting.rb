@@ -9,9 +9,8 @@ class Meeting < ApplicationRecord
   validate :validate_picture
   
   def resize_picture
-    return self.picture.variant(resize: '100x100').processed
+    return self.picture.variant(resize: '200x200').processed
   end
-  
   
   private
     # def only_user_id

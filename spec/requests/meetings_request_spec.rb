@@ -141,6 +141,9 @@ RSpec.describe "Meetings", type: :request do
         expect(request.fullpath).to eq "users/1/meetings/new"
       end
     end
+    
+    
+    
  
   end
 end

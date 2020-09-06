@@ -75,6 +75,13 @@ RSpec.configure do |config|
   # FactoryBotの設定追加
   config.include FactoryBot::Syntax::Methods
   
+  # factoryBot内での呼び出し
+  FactoryBot::SyntaxRunner.class_eval do
+    include ActionDispatch::TestProcess
+  end
+  # fixtureのパス指定（テスト時のパスをfixtures以下から省略できる）
+  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  
   # spec/support/application_helper.rb
   config.include ApplicationHelpers
 end
