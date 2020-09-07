@@ -1,24 +1,28 @@
 
 <header class="masthead">
-<% provide(:title, @user.name) %>
-<div class="container">
+<div class="container signup-container-2">
   <div class="row">
-    <div class="col bg-primary">
-      form
+    <div class="col">
+      <div class = "show-meetings-text" >
+      
+　　　<p class ="text1">
+　　　  <strong>ユーザー名</strong>
+　　　  <br><%= @user.name %></br>
+　　　  
+　　　  <br>
+　　　  <strong>メールアドレス</strong>
+　　　  <br><%= @user.email %></br>
+　　　  </br>
+　　　</p>
+      
+      <p>
+       <%= link_to "ユーザー編集", edit_user_path(current_user) %> |
+       <%= link_to "カレンダー", user_meetings_path(current_user) %>
+      </p>
+
+      </div>
     </div>
-    <div class="col bg-secondary">
-      figure
     </div>
-  </div>
-  <div class="row">
-    <div class="col bg-warning">
-      log
-    </div>
-  </div>
-  
-  <p>
-    <%= link_to "カレンダー へ", user_meetings_path(current_user) %>
-  </p>
 </div>
 </header>
 

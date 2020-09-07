@@ -46,15 +46,16 @@ RSpec.describe "Users-login", type: :system do
       it "is valid because it fulfils condition of input" do
         visit login_path
         signup_valid_information
-        expect(current_path).to eq user_path(1)
-        expect(page).to have_selector '.container'
+        # expect(current_path).to eq user_path(1)
+        expect(current_path).to eq user_meetings_path(1)
+        expect(page).to have_selector '.calendar-1'
       end
      
       it "ログインした後、ログアウトボタン有、ログインボタン無" do
         visit login_path
         signup_valid_information
-        expect(current_path).to eq user_path(1)
-        expect(page).to have_selector '.container'
+        expect(current_path).to eq user_meetings_path(1)
+        expect(page).to have_selector '.calendar-1'
         expect(page).to have_link 'Logout'
         expect(page).not_to have_link 'Login'
       end
@@ -64,8 +65,8 @@ RSpec.describe "Users-login", type: :system do
     it "ログアウトした後、ログインボタン有、ログアウトボタン無" do
       visit login_path
       signup_valid_information
-      expect(current_path).to eq user_path(1)
-      expect(page).to have_selector '.container'
+      expect(current_path).to eq user_meetings_path(1)
+      expect(page).to have_selector '.calendar-1'
       expect(page).to have_link 'Logout'
       expect(page).not_to have_link 'Login'
       click_link 'Logout'

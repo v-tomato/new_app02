@@ -10745,10 +10745,15 @@ section#contact form#contactForm :-ms-input-placeholder {
   background-color: #FFFFFF;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: center center;
+  background-position: center;
   background-size: cover;
 }
 
 .show-meetings-text{
   color : #000000;
+}
+
+p.text1 {
+  text-align: center; 
+  margin-bottom: 0.5rem;
 }

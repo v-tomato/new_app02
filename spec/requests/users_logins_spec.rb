@@ -57,7 +57,8 @@ RSpec.describe "UsersLogins", type: :request do
       expect(flash[:danger]).to be_falsey
       expect(is_logged_in?).to be_truthy
       follow_redirect!
-      expect(request.fullpath).to eq '/users/1'
+      # expect(request.fullpath).to eq '/users/1'
+      expect(request.fullpath).to eq '/users/1/meetings'
     end
   end
   
@@ -68,7 +69,8 @@ RSpec.describe "UsersLogins", type: :request do
     post_valid_information(user)
     expect(is_logged_in?).to be_truthy
     follow_redirect!
-    expect(request.fullpath).to eq '/users/1'
+    # expect(request.fullpath).to eq '/users/1'
+    expect(request.fullpath).to eq '/users/1/meetings'
     # ログアウト
     delete logout_path
     expect(is_logged_in?).to be_falsey
