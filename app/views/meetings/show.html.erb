@@ -23,8 +23,8 @@
      
      
      
-      <strong>画像</strong
-    　<p>
+      <strong>画像</strong>
+      <p>
       <% @meetings.each do |meeting| %>
         <% if meeting.picture.attached? %>
           <%= image_tag meeting.resize_picture %>

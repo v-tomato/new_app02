@@ -1,10 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe "Users-sigup", type: :request do
+  
+   def post_invalid_signup_information
+    post signup_path, 
+         params: {
+            user: {
+             name: "",
+             email: "user@invalid",
+             password: "foo",
+             password_confirmation: "bar"
+           } 
+        }
+  end
     
-    describe "GET/siqnup" do
+  describe "GET/siqnup" do
       
-      it "is invalid signup information" do
+    it "is invalid signup information" do
         get signup_path
         expect{
           post signup_path,
@@ -33,6 +45,6 @@ RSpec.describe "Users-sigup", type: :request do
         }.to change(User, :count).by(1)
       end
       
-    end
+  end
 end
 
