@@ -2,7 +2,7 @@
 <header class="masthead">
 <div class="container signup-container-2">
   <div class="row">
-    <div class="col">　　
+    <div class="col">
     
     <div class = "show-meetings-text" >
         
@@ -23,12 +23,12 @@
      
      
      
-    　<strong>画像</strong>
+      <strong>画像</strong
     　<p>
       <% @meetings.each do |meeting| %>
         <% if meeting.picture.attached? %>
           <%= image_tag meeting.resize_picture %>
-       <% end %>
+        <% end %>
       <% end %>  
       </p>
      
@@ -39,8 +39,8 @@
       <%= link_to '削除', user_meeting_path(@meeting), method: :delete %>|
       <%= link_to '戻る', user_meetings_path(id: current_user) %>
     </p>
-　　
-　　</div>
+    
+  </div>
   </div>
 </div>
 </header>

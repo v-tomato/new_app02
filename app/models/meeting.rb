@@ -8,10 +8,11 @@ class Meeting < ApplicationRecord
   
   validate :validate_picture
   
+  
   def resize_picture
     return self.picture.variant(resize: '200x200').processed
   end
-  
+
   private
     # def only_user_id
     #   time.presence or memo.presence or picture.attached?

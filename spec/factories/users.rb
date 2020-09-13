@@ -6,6 +6,10 @@ FactoryBot.define do
     password { "password" }
     password_confirmation { "password" }
     activated { true }
+    
+    factory :admin do
+      admin { true }
+    end
   end
   
   factory :other_user, class: User do
