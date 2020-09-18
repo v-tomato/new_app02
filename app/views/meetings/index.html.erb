@@ -1,6 +1,8 @@
 <!--カレンダー表示ページ-->
-<header class="masthead2">
-</header>  
+<!--<header class="masthead2">-->
+<!--</header> -->
+<header class="masthead3">
+</header> 
 
 <div class = "calendar-1">
 
@@ -10,16 +12,22 @@
  </div>
 <br>
 
+<div class = "schedule-calendar">
 <%= month_calendar events: @meetings do |date, meetings| %>
   <%= date %>
 
   <% meetings.each do |meeting| %>
     <div>
-      <!--修正点-->
       <%= link_to meeting.title, user_meeting_path(@user, meeting) %>
     </div>
   <% end %>
+  
 <% end %>
+</div>
 
 </div>
 
+
+
+
+ 
