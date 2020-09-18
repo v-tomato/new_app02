@@ -11,7 +11,7 @@ RSpec.describe "Signup", type: :system do
   end
     
   def signup_valid_information
-    fill_in '名前', with: 'Example User'
+    fill_in '名前',  with: 'Example User'
     fill_in 'メールアドレス', with: 'user@example.com'
     fill_in 'パスワード(6文字以上)', with: 'password'
     fill_in 'パスワード（再入力）', with: 'password'
@@ -27,8 +27,7 @@ RSpec.describe "Signup", type: :system do
   
   it "is valid signup" do
     visit signup_path
-    signup_valid_information
-    # expect { signup_valid_information }.to change(User, :count).by(1)
+    expect { signup_valid_information }.to change(User, :count).by(1)
     expect(current_path).to eq root_path
     expect(page).to have_selector '.alert-info'
   end

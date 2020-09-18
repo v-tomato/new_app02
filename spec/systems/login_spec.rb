@@ -46,7 +46,6 @@ RSpec.describe "Users-login", type: :system do
       it "is valid because it fulfils condition of input" do
         visit login_path
         signup_valid_information
-        # expect(current_path).to eq user_path(1)
         expect(current_path).to eq user_meetings_path(1)
         expect(page).to have_selector '.calendar-1'
       end
