@@ -9,6 +9,7 @@ Schedule App(https://powerful-beach-90235.herokuapp.com)
 * Ruby 2.6.3
 * Rails 5.2.4.3
 * RSpec 3.9
+* Postgresql 12.2
 
 # 実装機能
 ## ユーザー関連
